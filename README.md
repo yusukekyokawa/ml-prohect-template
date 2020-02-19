@@ -20,3 +20,8 @@ https://signate.jp/competitions/108/data
 ディレクトリ構成はこちらを参考
 https://drivendata.github.io/cookiecutter-data-science/
 
+Deep Learnningのモデルの作成・学習時の実験管理を楽にするツールたち
+https://qiita.com/TatsuyaShirakawa/items/db2c37ab21df109e72ab
+
+情報系研究者のための研究ノート
+https://qiita.com/guicho271828/items/9307ae12248329b71f12
