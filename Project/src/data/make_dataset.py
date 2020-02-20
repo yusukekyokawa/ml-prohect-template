@@ -6,6 +6,9 @@ import os
 import pandas as pd
 from PIL import Image
 
+torch.manual_seed(0)
+torch.random.manual_seed(0)
+
 
 class CreateDataset(Dataset):
     def __init__(self, csv_path, root_dir, transform):
