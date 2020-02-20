@@ -19,6 +19,8 @@ jupyterが基本．実験しながら方針を固めていく．全てのデー�
 
 データの前処理を行う．Deep系ならAugmentationなども決めておく．
 
+
+
 ### 4. 学習
 ### 5. 予測
 
@@ -34,8 +36,10 @@ jupyterが基本．実験しながら方針を固めていく．全てのデー�
 - 実験結果の管理はmflow or sacredを使用
 - 環境はdockerで管理
 
+## Data Leakageについて
 
-
+https://towardsdatascience.com/data-leakage-in-machine-learning-10bdd3eec742
+A very common error that people make is to leak information in the data pre-processing step of machine learning. It is essential that these transformations only have knowledge of the training set, even though they are applied to the test set as well. For example, if you decide that you want to run PCA as a pre-processing step, you should fit your PCA model on only the training set. Then, to apply it to your test set, you would only call its transform method (in the case of a scikit-learn model) on the test set. If, instead, you fit your pre-processor on the entire data-set, you will leak information from the test set, since the parameters of the pre-processing model will be fitted with knowledge of the test set.
 ## 参考
 SIGNATEの問題はこちら
 https://signate.jp/competitions/108/data
