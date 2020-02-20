@@ -4,13 +4,13 @@ from fastprogress import progress_bar
 import torch.nn as nn
 
 # 訓練データの学習行う関数
-def train(dataloader, model, optimizer, criterion, device):
+def train(dataloader, model, optimizer, criterion, device, parent=None):
     # modelのモード変更
     model.train()
     running_loss = 0.0
     correct = 0
     total = 0
-    for step, data in enumerate(progress_bar(dataloader, 0)):
+    for step, data in enumerate(progress_bar(dataloader, parent=parent)):
         # get the inputs; data is a list of [inputs, labels]
         inputs, labels = data
 

@@ -23,35 +23,36 @@ class CreateDataset(Dataset):
         # 画像の読み込み
         image_name = self.images[idx]
         image = Image.open(os.path.join(self.root_dir, image_name))
-        
+        image = image.resize((256, 256))
         # ラベルの読み混み
         label = self.train_df.query('file_name=="'+image_name+'"')['label_id'].iloc[0]
         
         return self.transform(image), int(label)
 
-# 前処理方法の指定
-transform = transforms.Compose([
-    transforms.ToTensor()
-])
+def get_train_val():
+    # 前処理方法の指定
+    transform = transforms.Compose([
+        transforms.ToTensor()
+    ])
 
-# フォルダからデータ読み込み
-train_val_set = CreateDataset("../../../Data/train_master.tsv", "../../../Data/train", transform)
-
-
-# dataset読みこみ
-n_samples = len(train_val_set)
-
-train_size = n_samples * 0.9
+    # フォルダからデータ読み込み
+    train_val_set = CreateDataset("../../Data/train_master.tsv", "../../Data/train", transform)
 
 
-subset1_indices = range(0,int(train_size)) 
-subset2_indices = range(int(train_size),n_samples) 
+    # dataset読みこみ
+    n_samples = len(train_val_set)
 
-trainset = Subset(train_val_set, subset1_indices)
-valset   = Subset(train_val_set, subset2_indices)
+    train_size = n_samples * 0.9
 
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=100,shuffle=True)
 
-valloader = torch.utils.data.DataLoader(valset, batch_size=len(valset), shuffle=False)
+    subset1_indices = range(0,int(train_size)) 
+    subset2_indices = range(int(train_size),n_samples) 
 
+    trainset = Subset(train_val_set, subset1_indices)
+    valset   = Subset(train_val_set, subset2_indices)
+
+    trainloader = torch.utils.data.DataLoader(trainset, batch_size=100,shuffle=True)
+
+    valloader = torch.utils.data.DataLoader(valset, batch_size=len(valset), shuffle=False)
+    return trainloader, valloader
 
