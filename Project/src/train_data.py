@@ -1,6 +1,7 @@
 import torch 
 from torchvision import models
 from fastprogress import progress_bar
+import torch.nn as nn
 
 # 訓練データの学習行う関数
 def train(dataloader, model, optimizer, criterion, device):
@@ -60,3 +61,20 @@ def valid(dataloader, model, criterion, device):
     val_loss = running_loss / len(dataloader)
     val_acc = float(correct) / total
     return val_acc, val_loss
+
+
+# ネットワークの初期化
+def weights_init(m):
+    classname = m.__class__.__name__
+    if classname.find('Conv') != -1:
+        # Conv2dとConvTranspose2dの初期化
+        nn.init.xavier_normal_(m.weight.data)
+        nn.init.normal_(m.bias.data)
+    elif classname.find('BatchNorm') != -1:
+        # BatchNorm2dの初期化
+        nn.init.xavier_normal_(m.weight.data)
+        nn.init.normal_(m.bias.data)
+    elif classname.find('Linear') != -1:
+        # apply a uniform distribution to the weights and a bias=0
+        nn.init.xavier_normal_(m.weight.data)
+        nn.init.normal_(m.bias.data)
