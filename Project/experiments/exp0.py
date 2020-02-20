@@ -1,7 +1,12 @@
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import torch
 import hydra
 import yaml
-imprt 
+import datetime
+
+from src.train_data import train, valid
+
 
 def main():
 
