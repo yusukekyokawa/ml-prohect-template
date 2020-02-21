@@ -1,0 +1,16 @@
+version: '2.3'
+services:
+  ml-project:
+    build:
+      context: ./Docker
+      dockerfile: Dockerfile
+    runtime: nvidia
+    command: /bin/bash
+    command: jupyter notebook --port 9999  --allow-root --NotebookApp.token='' --NotebookApp.password=''
+    ports:
+      - "7000:7000"
+      - "9999:9999"
+    tty: true
+    volumes:
+      - ./Project:/Project
+      - ./Data:/Data

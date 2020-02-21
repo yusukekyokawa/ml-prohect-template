@@ -55,8 +55,11 @@ def main():
     for epoch in mb:
         acc, loss = train(trainloader, model, optimizer, criterion, param["device"], parent=mb)
         val_acc, val_loss = valid(valloader, model, criterion, param["device"])
-        print('epoch %d, acc: %f, loss: %.4f val_acc: %.4f val_loss: %.4f'
-                % (epoch,  acc, loss, val_acc, val_loss))
+        print('======================== epoch {} ========================'.format(epoch+1))
+        # print('lr              : {:.5f}'.format(scheduler.get_lr()[0]))
+        print('loss            : train={:.5f}  , test={:.5f}'.format(loss, val_loss))
+        print('acc : train={:.3%}  , test={:.3%}'.format(acc, val_acc))
+
         train_acc_list.append(acc)
         train_loss_list.append(loss)
         val_loss_list.append(val_loss)
