@@ -30,7 +30,7 @@ pyparsing==2.2.2
 python-dateutil==2.7.3
 pytz==2018.5
 PyWavelets==1.0.1
-PyYAML==3.13
+PyYAML==5.3
 scikit-image==0.14.1
 scikit-learn==0.20.0
 scipy==1.1.0
@@ -50,4 +50,5 @@ torchsummary==1.5.1
 torchtext==0.3.1          
 torchvision==0.5.0  
 umap-learn==0.3.10 
-fastprogress==0.2.2    
+fastprogress>=0.1.22
+mlflow

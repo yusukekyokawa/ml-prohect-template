@@ -1,12 +1,12 @@
 version: '2.3'
 services:
-  ml-project:
+  python:
     build:
       context: ./Docker
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-pytorch
     runtime: nvidia
     command: /bin/bash
-    command: jupyter notebook --port 9999  --allow-root --NotebookApp.token='' --NotebookApp.password=''
+    # command: jupyter notebook --port 9999  --allow-root --NotebookApp.token='' --NotebookApp.password=''
     ports:
       - "7000:7000"
       - "9999:9999"

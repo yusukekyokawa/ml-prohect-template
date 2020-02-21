@@ -1,16 +1,15 @@
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import torch
-import hydra
 import yaml
 import datetime
 import torch.optim as optim
 import torch.nn as nn
-from fastprogress import master_bar
 from src.train_data import train, valid
 from src.utils import seed_setting
 from src.data.make_dataset import get_train_val
 from torchvision import models
+from fastprogress import master_bar, progress_bar
 
 
 def main():

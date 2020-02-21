@@ -1,6 +1,5 @@
 import torch 
 from torchvision import models
-from fastprogress import progress_bar
 import torch.nn as nn
 
 # 訓練データの学習行う関数
