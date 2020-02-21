@@ -57,3 +57,12 @@ https://qiita.com/guicho271828/items/9307ae12248329b71f12
 https://betashort-lab.com/%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9/%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0/pytorch%E3%81%AEdatasets%E3%81%A7%E7%94%BB%E5%83%8F%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B/
 
 https://qiita.com/daikiclimate/items/26be9bb74f1c27c54d23
+
+MLFlowに関する使い方は
+https://www.slideshare.net/maropu0804/mlflow
+
+MLFlow × Dockerに関しては
+https://github.com/hyzhak/mlflow-container
+
+Best Practices for Hyperparameter Tuning with MLflow
+https://www.slideshare.net/databricks/best-practices-for-hyperparameter-tuning-with-mlflow
