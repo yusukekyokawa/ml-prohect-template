@@ -53,7 +53,7 @@ def valid(dataloader, model, criterion, device):
             # inputs = torch.tensor(inputs, dtype=torch.float).to(device)
             inputs = inputs.clone().float().detach().to(device)
             # labels = torch.tensor(labels, dtype=torch.long).to(device)
-            labels = torch.clone().long().detach().to(device)
+            labels = labels.clone().long().detach().to(device)
             outputs = model(inputs)
             # lossの計算
             loss = criterion(outputs, labels)
