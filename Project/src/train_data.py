@@ -1,6 +1,7 @@
 import torch 
 from torchvision import models
 import torch.nn as nn
+from fastprogress import progress_bar
 
 # 訓練データの学習行う関数
 def train(dataloader, model, optimizer, criterion, device, parent=None):
