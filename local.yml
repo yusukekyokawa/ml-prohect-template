@@ -15,3 +15,6 @@ services:
     volumes:
       - ./Project:/Project
       - ./Data:/Data
+      - ./artifact:/artifact
+      - ./mlflow-server:/mlflow-server
+      - ./mlflow-storage:/mlflow-storage

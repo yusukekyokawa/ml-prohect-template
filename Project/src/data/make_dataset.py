@@ -29,7 +29,7 @@ class CreateDataset(Dataset):
         
         return self.transform(image), int(label)
 
-def get_train_val():
+def get_train_val(batch_size):
     # 前処理方法の指定
     transform = transforms.Compose([
         transforms.ToTensor()
@@ -51,8 +51,8 @@ def get_train_val():
     trainset = Subset(train_val_set, subset1_indices)
     valset   = Subset(train_val_set, subset2_indices)
 
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=100,shuffle=True)
+    trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,shuffle=True)
 
-    valloader = torch.utils.data.DataLoader(valset, batch_size=100, shuffle=False)
+    valloader = torch.utils.data.DataLoader(valset, batch_size=batch_size, shuffle=False)
     return trainloader, valloader
 

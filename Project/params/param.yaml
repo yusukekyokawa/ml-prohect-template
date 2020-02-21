@@ -1,5 +1,5 @@
-batch_size: 100
-epoch: 100
+batch_size: 1000
+epoch: 3
 optim: sgd
 learning_rate: 0.001
 loss_fn: cross_entropy

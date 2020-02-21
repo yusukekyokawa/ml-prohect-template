@@ -51,4 +51,5 @@ torchtext==0.3.1
 torchvision==0.3.0  
 umap-learn==0.3.10 
 fastprogress>=0.1.22
+Flask==1.0.4
 mlflow
