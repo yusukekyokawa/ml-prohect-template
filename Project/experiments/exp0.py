@@ -24,19 +24,25 @@ def main():
     seed_setting(param["seed"])
     if torch.cuda.is_available():
         torch.backends.cudnn.benchmark = True
+
+    if param["device"] == "cpu":
+        device = torch.device("cpu")
+    elif param["device"] == "gpu":
+        device = torch.device("cuda")
     
     trainloader, valloader = get_train_val()
 
     # model定義
     model = models.alexnet(pretrained=True)
     param['model'] = model.__class__.__name__
-
-    model = model.to(param['device'])
+    
+    
+    model = model.to(device)
 
 
 
     # loss関数の定義
-    criterion = nn.CrossEntropyLoss().to(param["device"])
+    criterion = nn.CrossEntropyLoss().to(device)
     # 最適化関数の定義
     if param["optim"].lower() == "sgd":    
         optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
@@ -52,8 +58,8 @@ def main():
     val_loss_list = []
     val_acc_list = []
     for epoch in mb:
-        acc, loss = train(trainloader, model, optimizer, criterion, param["device"], parent=mb)
-        val_acc, val_loss = valid(valloader, model, criterion, param["device"])
+        acc, loss = train(trainloader, model, optimizer, criterion, device, parent=mb)
+        val_acc, val_loss = valid(valloader, model, criterion, device)
         print('======================== epoch {} ========================'.format(epoch+1))
         # print('lr              : {:.5f}'.format(scheduler.get_lr()[0]))
         print('loss            : train={:.5f}  , test={:.5f}'.format(loss, val_loss))

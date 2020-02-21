@@ -5,4 +5,4 @@ learning_rate: 0.001
 loss_fn: cross_entropy
 seed: 0
 model: alexnet
-device: cuda
+device: gpu

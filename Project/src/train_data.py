@@ -14,9 +14,11 @@ def train(dataloader, model, optimizer, criterion, device, parent=None):
         # get the inputs; data is a list of [inputs, labels]
         inputs, labels = data
 
-        inputs = torch.tensor(inputs, dtype=torch.float).to(device)
-        labels = torch.tensor(labels, dtype=torch.long).to(device)
-
+        # inputs = torch.tensor(inputs, dtype=torch.float).to(device)
+        # detachはttensorから勾配情報を取り除く
+        inputs = inputs.clone().float().detach().to(device)
+        # labels = torch.tensor(labels, dtype=torch.long).to(device)
+        labels = labels.clone().long().detach().to(device)
         # zero the parameter gradients
         optimizer.zero_grad()
 
@@ -48,8 +50,10 @@ def valid(dataloader, model, criterion, device):
         total = 0
         for i, data in enumerate(dataloader, 0):
             inputs, labels = data
-            inputs = torch.tensor(inputs, dtype=torch.float).to(device)
-            labels = torch.tensor(labels, dtype=torch.long).to(device)
+            # inputs = torch.tensor(inputs, dtype=torch.float).to(device)
+            inputs = inputs.clone().float().detach().to(device)
+            # labels = torch.tensor(labels, dtype=torch.long).to(device)
+            labels = torch.clone().long().detach().to(device)
             outputs = model(inputs)
             # lossの計算
             loss = criterion(outputs, labels)
