@@ -53,6 +53,6 @@ def get_train_val():
 
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=100,shuffle=True)
 
-    valloader = torch.utils.data.DataLoader(valset, batch_size=len(valset), shuffle=False)
+    valloader = torch.utils.data.DataLoader(valset, batch_size=100, shuffle=False)
     return trainloader, valloader
 
