@@ -37,6 +37,38 @@ user: "${UID}:${GID}"
 UID=${UID} GID=${GID} docker-compose up
 UID=${UID} GID=${GID} docker-compose exec python-gpu bash
 
+## How to get start?
+### 1. Connect to remote server
+```shell
+$ssh -l user@ip
+```
+### 2. prepare for tmux terminal
+you don't have to reconncet to new server when you are session out
+```shell
+$tmux
+```
+### 3. build docker containerls
+
+```shell
+# build containers
+$UID=your_uid GID=your_gid docker-copmose build
+# start containers
+$UID=your_uid GID=your_gid docker-compose up
+# exec containers
+$UID=your_uid GID=your_Gid docker-compose exec python-gpu bash
+```
+
+### 4. reconnect to tmux
+
+```shell
+# 1. connec to remote
+$ssh
+# 2. check tmux session on remote server
+$tmux ls
+# 3. connect to session
+$tmux a -t <sessionid>
+```
+Please check references for any other usages
 
 
 ## tips
