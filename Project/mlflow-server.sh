@@ -7,6 +7,6 @@ EOF
 
 #    --backend-store-uri ${PATH_TO_TRACKING}/myruns \
 exec mlflow server \
-    --backend-store-uri ../Project/experiments/mlruns \
+    --backend-store-uri ../Project/mlruns \
     --default-artifact-root ../artifact \
     --host 0.0.0.0

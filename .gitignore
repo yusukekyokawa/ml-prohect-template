@@ -1,3 +1,4 @@
 Data/*
 .vscode
 Project/experiments/mlruns
+mlruns/*
