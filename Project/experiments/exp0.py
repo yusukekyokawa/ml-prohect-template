@@ -12,17 +12,9 @@ from torchvision import models
 from fastprogress import master_bar, progress_bar
 import mlflow
 import mlflow.pytorch
+from torch.utils.tensorboard import SummaryWriter
 
 
-def mlflow_param(param):
-    mlflow.log_param("epochs", param["epoch"])
-    mlflow.log_param("batch_size", param["batch_size"])
-    mlflow.log_param("optim", param["optim"])
-    mlflow.log_param("learning_rate", param["learning_rate"])
-    mlflow.log_param("loss_fn", param["loss_fn"])
-    mlflow.log_param("seed", param["seed"])
-    mlflow.log_param("model", param["model"])
-    mlflow.log_param("device", param["device"])
 
 
 def main():
@@ -58,6 +50,8 @@ def main():
     
     model = model.to(device)
 
+    writer = SummaryWriter("../../logs/exp0")
+
 
 
     # loss関数の定義
@@ -69,7 +63,10 @@ def main():
         optimizer = optim.Adam()
     
     # ログ取り
-    mlflow_param(param)
+    for key, val in param.items():
+        # print(f'{key}: {val}')
+        mlflow.log_param(key, val)
+
 
     mb = master_bar(range(param['epoch']))
 
@@ -99,6 +96,16 @@ def main():
             mlflow.log_metric("train_loss", loss, step=epoch)
             mlflow.log_metric("val_acc", val_acc, step=epoch)
             mlflow.log_metric("val_loss", val_loss, step=epoch)
+
+            # tensorboadでログをとる
+            writer.add_scalars("loss", {
+            'train': loss,
+            'valid': val_loss
+            }, epoch)
+            writer.add_scalars("acc", {
+                'tarin': acc,
+                'valid': val_acc
+            }, epoch)
     # mlflow.end_run()
             
 
