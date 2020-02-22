@@ -1,29 +1,43 @@
 version: '2.3'
 services:
-  python:
+  python-gpu:
     build:
-      context: ./Docker
-      dockerfile: Dockerfile-pytorch
+      context: ./Docker/python-gpu
+      dockerfile: Dockerfile
+    container_name: python-gpu
     runtime: nvidia
     command: /bin/bash
     # command: jupyter notebook --port 9999  --allow-root --NotebookApp.token='' --NotebookApp.password=''
     ports:
       - "7000:7000"
       - "9999:9999"
-      - "5000:5000"
     tty: true
     volumes:
       - ./Project:/Project
       - ./Data:/Data
       - ./artifact:/artifact
       - ./mlruns:/mlruns
+    depends_on:
+      - mlflow
   tensorboard:
     build:
-      context: ./Docker
+      context: ./Docker/tensorboard
       dockerfile: Dockerfile
-    runtime: nvidia
-    command: /bin/bash
+    container_name: tensorboard
     tty: true
     ports:
-      - "3333:3333"
-    
+      - "6006:6006"
+    command: tensorboard --logdir=./logs/ --host=0.0.0.0 
+
+  mlflow:
+    build:
+      context: Docker/mlflow
+      dockerfile: Dockerfile
+    container_name: mlflow
+    expose:
+      - 5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./artifact:/artifact
+      - ./mlruns:/mlruns
