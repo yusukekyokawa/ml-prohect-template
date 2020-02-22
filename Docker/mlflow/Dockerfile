@@ -16,6 +16,8 @@ WORKDIR /server
 RUN mkdir /artifact/
 RUN mkdir /mlruns
 
+
+
 CMD mlflow server \
     --backend-store-uri ../mlruns \
     --default-artifact-root ../artifact \

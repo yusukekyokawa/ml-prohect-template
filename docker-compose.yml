@@ -5,6 +5,7 @@ services:
       context: ./Docker/python-gpu
       dockerfile: Dockerfile
     container_name: python-gpu
+    user: "${UID}:${GID}"
     runtime: nvidia
     command: /bin/bash
     command: jupyter lab --port 9999 --ip=0.0.0.0  --allow-root --NotebookApp.token='' --NotebookApp.password=''
@@ -25,6 +26,7 @@ services:
       context: ./Docker/tensorboard
       dockerfile: Dockerfile
     container_name: tensorboard
+    user: "${UID}:${GID}"
     tty: true
     ports:
       - "6006:6006"
@@ -35,6 +37,7 @@ services:
       context: Docker/mlflow
       dockerfile: Dockerfile
     container_name: mlflow
+    user: "${UID}:${GID}"
     expose:
       - 5000
     ports:

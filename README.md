@@ -29,6 +29,16 @@ jupyterが基本．実験しながら方針を固めていく．全てのデー�
 ## ディレクトリ構造
 
 
+## ユーザ
+$whoami
+$id your_name
+
+user: "${UID}:${GID}"
+UID=${UID} GID=${GID} docker-compose up
+UID=${UID} GID=${GID} docker-compose exec python-gpu bash
+
+
+
 ## tips
 - データはgitで管理しない．容量制限で大抵upできないから
 - Dataフォルダは生データ，処理済み，データセット(訓練検証)用で構成
@@ -66,3 +76,6 @@ https://github.com/hyzhak/mlflow-container
 
 Best Practices for Hyperparameter Tuning with MLflow
 https://www.slideshare.net/databricks/best-practices-for-hyperparameter-tuning-with-mlflow
+
+tmuxの使い方
+https://qiita.com/toshihirock/items/77bd3e09abde3bb26067
