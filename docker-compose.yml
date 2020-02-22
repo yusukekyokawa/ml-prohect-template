@@ -17,3 +17,13 @@ services:
       - ./Data:/Data
       - ./artifact:/artifact
       - ./mlruns:/mlruns
+  tensorboard:
+    build:
+      context: ./Docker
+      dockerfile: Dockerfile
+    runtime: nvidia
+    command: /bin/bash
+    tty: true
+    ports:
+      - "3333:3333"
+    
