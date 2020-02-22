@@ -7,7 +7,7 @@ services:
     container_name: python-gpu
     runtime: nvidia
     command: /bin/bash
-    # command: jupyter notebook --port 9999  --allow-root --NotebookApp.token='' --NotebookApp.password=''
+    command: jupyter lab --port 9999 --ip=0.0.0.0  --allow-root --NotebookApp.token='' --NotebookApp.password=''
     ports:
       - "7000:7000"
       - "9999:9999"
@@ -17,6 +17,7 @@ services:
       - ./Data:/Data
       - ./artifact:/artifact
       - ./mlruns:/mlruns
+      - ./logs:/logs
     depends_on:
       - mlflow
   tensorboard:
