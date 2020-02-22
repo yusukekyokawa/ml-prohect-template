@@ -111,3 +111,10 @@ https://www.slideshare.net/databricks/best-practices-for-hyperparameter-tuning-w
 
 tmuxの使い方
 https://qiita.com/toshihirock/items/77bd3e09abde3bb26067
+
+A Quick and Easy Guide to tmux
+https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/
+
+
+Simple Introduction to Tensorboard Embedding Visualisation
+http://www.pinchofintelligence.com/simple-introduction-to-tensorboard-embedding-visualisation/

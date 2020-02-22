@@ -28,7 +28,7 @@ def main():
     # mlflow.set_tag('project', 'my_project' )
 
     #### パラメータの読み込み ###
-    with open('../params/param.yaml', "r+") as f:
+    with open('../params/exp0.yaml', "r+") as f:
         param = yaml.load(f, Loader=yaml.FullLoader)
     param["date"] = now_date
 
