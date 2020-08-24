@@ -118,3 +118,15 @@ https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/
 
 Simple Introduction to Tensorboard Embedding Visualisation
 http://www.pinchofintelligence.com/simple-introduction-to-tensorboard-embedding-visualisation/
+
+tensorflowのembeddingの例
+http://www.pinchofintelligence.com/simple-introduction-to-tensorboard-embedding-visualisation/
+
+
+## アンチパターン集
+Why your machine learning project will fail
+http://thedatascience.ninja/2018/07/12/why-your-machine-learning-project-will-fail/
+
+
+機械学習プロジェクトが失敗する9つの理由
+https://tjo.hatenablog.com/entry/2018/08/03/080000

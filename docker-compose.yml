@@ -3,7 +3,7 @@ services:
   python-gpu:
     build:
       context: ./Docker/python-gpu
-      dockerfile: Dockerfile
+      dockerfile: gpu.Dockerfile
     container_name: python-gpu
     user: "${UID}:${GID}"
     runtime: nvidia
