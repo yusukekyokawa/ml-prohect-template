@@ -5,6 +5,9 @@ FROM gcr.io/kaggle-images/python-tensorflow-whl:2.3.0-py37 as tensorflow_whl
 FROM gcr.io/kaggle-images/python:${BASE_TAG}
 
 ADD clean-layer.sh  /tmp/clean-layer.sh
+# 追加
+RUN chmod +x /tmp/clean-layer.sh 
+
 
 # Cuda support
 COPY --from=nvidia /etc/apt/sources.list.d/cuda.list /etc/apt/sources.list.d/
@@ -121,3 +124,4 @@ RUN pip install pycuda && \
 
 # Remove the CUDA stubs.
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH_NO_STUBS"
+
