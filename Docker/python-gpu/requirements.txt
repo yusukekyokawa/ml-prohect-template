@@ -52,7 +52,7 @@ torchvision==0.3.0
 umap-learn==0.3.10 
 fastprogress>=0.1.22
 Flask==1.0.4
-mlflow==1.10.0
+mlflow==1.23.1
 notebook==6.0.3
 jupyterhub==1.1.0
 jupyterlab==1.2.5
